@@ -131,7 +131,6 @@ type hypervisor struct {
 	NetRateLimiterOpsMaxRate       int64                     `toml:"net_rate_limiter_ops_max_rate"`
 	NetRateLimiterOpsOneTimeBurst  int64                     `toml:"net_rate_limiter_ops_one_time_burst"`
 	HypervisorLoglevel             uint32                    `toml:"hypervisor_loglevel"`
-	VirtioFSCacheSize              uint32                    `toml:"virtio_fs_cache_size"`
 	VirtioFSQueueSize              uint32                    `toml:"virtio_fs_queue_size"`
 	DefaultMaxVCPUs                uint32                    `toml:"default_maxvcpus"`
 	MemorySize                     uint32                    `toml:"default_memory"`
@@ -945,7 +944,6 @@ func newQemuHypervisorConfig(h hypervisor) (vc.HypervisorConfig, error) {
 		VirtioFSDaemon:           h.VirtioFSDaemon,
 		VirtioFSDaemonList:       h.VirtioFSDaemonList,
 		HypervisorLoglevel:       h.defaultHypervisorLoglevel(),
-		VirtioFSCacheSize:        h.VirtioFSCacheSize,
 		VirtioFSCache:            h.defaultVirtioFSCache(),
 		VirtioFSQueueSize:        h.VirtioFSQueueSize,
 		VirtioFSExtraArgs:        h.VirtioFSExtraArgs,
@@ -1080,7 +1078,6 @@ func newClhHypervisorConfig(h hypervisor) (vc.HypervisorConfig, error) {
 		VirtioFSDaemon:                 h.VirtioFSDaemon,
 		VirtioFSDaemonList:             h.VirtioFSDaemonList,
 		HypervisorLoglevel:             h.defaultHypervisorLoglevel(),
-		VirtioFSCacheSize:              h.VirtioFSCacheSize,
 		VirtioFSCache:                  h.VirtioFSCache,
 		MemPrealloc:                    h.MemPrealloc,
 		ReclaimGuestFreedMemory:        h.ReclaimGuestFreedMemory,
@@ -1236,7 +1233,6 @@ func newStratovirtHypervisorConfig(h hypervisor) (vc.HypervisorConfig, error) {
 		VirtioFSDaemon:        h.VirtioFSDaemon,
 		VirtioFSDaemonList:    h.VirtioFSDaemonList,
 		HypervisorLoglevel:    h.defaultHypervisorLoglevel(),
-		VirtioFSCacheSize:     h.VirtioFSCacheSize,
 		VirtioFSCache:         h.defaultVirtioFSCache(),
 		VirtioFSExtraArgs:     h.VirtioFSExtraArgs,
 		HugePages:             h.HugePages,

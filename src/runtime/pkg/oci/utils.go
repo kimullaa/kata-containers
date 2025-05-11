@@ -894,12 +894,6 @@ func addHypervisorVirtioFsOverrides(ocispec specs.Spec, sbConfig *vc.SandboxConf
 		sbConfig.HypervisorConfig.VirtioFSCache = value
 	}
 
-	if err := newAnnotationConfiguration(ocispec, vcAnnotations.VirtioFSCacheSize).setUint(func(cacheSize uint64) {
-		sbConfig.HypervisorConfig.VirtioFSCacheSize = uint32(cacheSize)
-	}); err != nil {
-		return err
-	}
-
 	return newAnnotationConfiguration(ocispec, vcAnnotations.Msize9p).setUintWithCheck(func(msize9p uint64) error {
 		if msize9p == 0 {
 			return fmt.Errorf("Error parsing annotation for msize_9p, please specify positive numeric value")

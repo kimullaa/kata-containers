@@ -185,7 +185,6 @@ func (q *qemuS390x) appendVhostUserDevice(ctx context.Context, devices []govmmQe
 		CharDevID:     utils.MakeNameID("char", attr.DevID, maxDevIDSize),
 		TypeDevID:     utils.MakeNameID("fs", attr.DevID, maxDevIDSize),
 		Tag:           attr.Tag,
-		CacheSize:     attr.CacheSize,
 		VhostUserType: govmmQemu.VhostUserFS,
 		DevNo:         devno,
 	}

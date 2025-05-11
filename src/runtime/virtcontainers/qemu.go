@@ -2375,7 +2375,6 @@ func (q *qemu) AddDevice(ctx context.Context, devInfo interface{}, devType Devic
 			vhostDev := config.VhostUserDeviceAttrs{
 				Tag:       v.MountTag,
 				Type:      config.VhostUserFS,
-				CacheSize: q.config.VirtioFSCacheSize,
 				Cache:     q.config.VirtioFSCache,
 				QueueSize: q.config.VirtioFSQueueSize,
 			}

@@ -75,7 +75,6 @@ func TestQemuS390xAppendVhostUserDevice(t *testing.T) {
 	socketPath := "nonexistentpath.sock"
 	id := "deadbeef"
 	tag := "shared"
-	var cacheSize uint32 = 0
 
 	expected := []govmmQemu.Device{
 		govmmQemu.VhostUserDevice{
@@ -83,7 +82,6 @@ func TestQemuS390xAppendVhostUserDevice(t *testing.T) {
 			CharDevID:     fmt.Sprintf("char-%s", id),
 			TypeDevID:     fmt.Sprintf("fs-%s", id),
 			Tag:           tag,
-			CacheSize:     cacheSize,
 			VhostUserType: govmmQemu.VhostUserFS,
 			DevNo:         "fe.0.0001",
 		},
@@ -94,7 +92,6 @@ func TestQemuS390xAppendVhostUserDevice(t *testing.T) {
 		SocketPath: socketPath,
 		Type:       config.VhostUserFS,
 		Tag:        tag,
-		CacheSize:  cacheSize,
 	}
 
 	var devices []govmmQemu.Device

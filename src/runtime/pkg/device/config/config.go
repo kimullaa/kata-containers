@@ -461,8 +461,6 @@ type VhostUserDeviceAttrs struct {
 	// Block index of the device if assigned
 	Index int
 
-	CacheSize uint32
-
 	QueueSize uint32
 
 	// Reconnect timeout for socket of vhost user block device

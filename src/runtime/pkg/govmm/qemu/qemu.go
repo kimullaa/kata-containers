@@ -1467,7 +1467,6 @@ type VhostUserDevice struct {
 	TypeDevID     string //variable QEMU parameter based on value of VhostUserType
 	Address       string //used for MAC address in net case
 	Tag           string //virtio-fs volume id for mounting inside guest
-	CacheSize     uint32 //virtio-fs DAX cache size in MiB
 	QueueSize     uint32 //size of virtqueues
 	VhostUserType DeviceDriver
 
@@ -1640,9 +1639,6 @@ func (vhostuserDev VhostUserDevice) QemuFSParams(config *Config) []string {
 		queueSize = vhostuserDev.QueueSize
 	}
 	deviceParams = append(deviceParams, fmt.Sprintf("queue-size=%d", queueSize))
-	if vhostuserDev.CacheSize != 0 {
-		deviceParams = append(deviceParams, fmt.Sprintf("cache-size=%dM", vhostuserDev.CacheSize))
-	}
 	if vhostuserDev.Transport.isVirtioCCW(config) {
 		if config.Knobs.IOMMUPlatform {
 			deviceParams = append(deviceParams, "iommu_platform=on")

@@ -188,9 +188,6 @@ virtio_fs_daemon = "@DEFVIRTIOFSDAEMON@"
 # Your distribution recommends: @DEFVALIDVIRTIOFSDAEMONPATHS@
 valid_virtio_fs_daemon_paths = @DEFVALIDVIRTIOFSDAEMONPATHS@
 
-# Default size of DAX cache in MiB
-virtio_fs_cache_size = @DEFVIRTIOFSCACHESIZE@
-
 # Default size of virtqueues
 virtio_fs_queue_size = @DEFVIRTIOFSQUEUESIZE@
 

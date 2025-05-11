@@ -143,9 +143,6 @@ type HypervisorConfig struct {
 	// MemSlots specifies default memory slots the VM.
 	MemSlots uint32
 
-	// VirtioFSCacheSize is the DAX cache size in MiB
-	VirtioFSCacheSize uint32
-
 	// BlockDeviceCacheSet specifies cache-related options will be set to block devices or not.
 	BlockDeviceCacheSet bool
 

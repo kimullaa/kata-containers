@@ -198,9 +198,6 @@ const (
 	// VirtioFSCache is a sandbox annotation to specify the cache mode for fs version cache
 	VirtioFSCache = kataAnnotHypervisorPrefix + "virtio_fs_cache"
 
-	// VirtioFSCacheSize is a sandbox annotation to specify the DAX cache size in MiB
-	VirtioFSCacheSize = kataAnnotHypervisorPrefix + "virtio_fs_cache_size"
-
 	// VirtioFSExtraArgs is a sandbox annotation to pass options to virtiofsd daemon
 	VirtioFSExtraArgs = kataAnnotHypervisorPrefix + "virtio_fs_extra_args"
 

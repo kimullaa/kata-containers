@@ -881,10 +881,7 @@ func setupStorages(ctx context.Context, sandbox *Sandbox) []*grpc.Storage {
 			// options should not contain 'dax' lest the virtio-fs daemon crashing
 			// with an invalid address reference.
 			if sandbox.config.HypervisorConfig.VirtioFSCache != typeVirtioFSCacheModeNever {
-				// If virtio_fs_cache_size = 0, dax should not be used.
-				if sandbox.config.HypervisorConfig.VirtioFSCacheSize != 0 {
-					sharedDirVirtioFSOptions = append(sharedDirVirtioFSOptions, sharedDirVirtioFSDaxOptions)
-				}
+				sharedDirVirtioFSOptions = append(sharedDirVirtioFSOptions, sharedDirVirtioFSDaxOptions)
 			}
 			mountPoint := kataGuestSharedDir()
 			if sharedFS == config.VirtioFSNydus {

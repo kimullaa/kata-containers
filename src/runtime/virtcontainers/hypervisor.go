@@ -572,9 +572,6 @@ type HypervisorConfig struct {
 	// MemSlots specifies default memory slots the VM.
 	MemSlots uint32
 
-	// VirtioFSCacheSize is the DAX cache size in MiB
-	VirtioFSCacheSize uint32
-
 	// Size of virtqueues
 	VirtioFSQueueSize uint32
 
