@@ -101,8 +101,6 @@ func NewVM(ctx context.Context, config VMConfig) (*VM, error) {
 
 	id := uuid.Generate().String()
 
-	virtLog.WithField("vm", id).WithField("config", config).Info("create new vm")
-
 	store, err := persist.GetDriver()
 	if err != nil {
 		return nil, err
@@ -116,6 +114,14 @@ func NewVM(ctx context.Context, config VMConfig) (*VM, error) {
 		}
 	}()
 
+	if config.HypervisorConfig.VMStorePath == "" {
+		config.HypervisorConfig.VMStorePath = store.RunVMStoragePath()
+	}
+	if config.HypervisorConfig.RunStorePath == "" {
+		config.HypervisorConfig.RunStorePath = store.RunStoragePath()
+	}
+
+	virtLog.WithField("vm", id).WithField("config", config).Info("create new vm")
 	if err = hypervisor.CreateVM(ctx, id, network, &config.HypervisorConfig); err != nil {
 		return nil, err
 	}
