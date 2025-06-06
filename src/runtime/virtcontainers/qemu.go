@@ -2938,6 +2938,10 @@ func (q *qemu) toGrpc(ctx context.Context) ([]byte, error) {
 
 	q.Cleanup(ctx)
 
+	if q.arch != nil {
+		q.state.Bridges = q.arch.getBridges()
+	}
+
 	qp := qemuGrpc{
 		ID:             q.id,
 		QmpChannelpath: q.qmpMonitorCh.path,
